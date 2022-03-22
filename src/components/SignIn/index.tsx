@@ -14,8 +14,12 @@ export const SignIn = () => {
   }
 
   return(
-    <div>
-      ...
-    </div>
+    <C.Container>
+      <C.BtnSignIn
+        onClick={signInWithGoogle}
+      >
+        Logar com o Google
+      </C.BtnSignIn>
+    </C.Container>
   )
 }
