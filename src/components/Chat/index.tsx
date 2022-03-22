@@ -2,6 +2,8 @@ import { useState, useEffect, useRef, RefObject } from "react";
 import { deleteMsg, listMsg } from "../../services/firebase";
 import { auth } from "../../config/firebase";
 import { Message } from "../../types/Message";
+import { SignOut } from "../SignOut";
+import { SendMessage } from "../SendMessage";
 import * as C from "./styles";
 
 // Chat
@@ -28,8 +30,24 @@ export const Chat = () => {
   }
 
   return(
-    <div>
-      ...
-    </div>
+    <C.Container>
+      <SignOut/>
+        <C.MsgArea>
+          {messages.map(({ id, photoURL, text, uid }: Message) => (
+            <div key={id}>
+              <MsgItem
+                id={id}
+                text={text}
+                photoURL={photoURL}
+                uid={user === uid ? 'sent':'received'} /* verificar se o usuário logado é o mesmo que adicionou a mensagem na lista */
+                onDelete={onDelete}
+              />
+            </div>
+          ))}
+        </C.MsgArea>
+        {/* Repassa a ref do evento para o componente*/}
+        <SendMessage scroll={scroll} /> 
+        <div ref={scroll}></div>
+    </C.Container>
   )
 }
