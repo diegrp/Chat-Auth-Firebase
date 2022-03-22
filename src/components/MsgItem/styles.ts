@@ -15,7 +15,7 @@ export const MsgWrapper = styled.div<{ user: string, options: boolean, activeUpd
   float: ${props => props.user === 'sent' ? 'right':'left'};
   flex-direction: ${props => props.user === 'sent' && 'row-reverse'};
   background-color: ${props => props.user === 'sent' ? '#395dff':'#fafafa'};
-  padding: ${props => props.user === 'sent' && '10px 20px'};
+  padding: ${props => props.user === 'sent' ? '10px 20px':'10px 20px'};
   border: ${props => props.user === 'received' && 'border: 1px solid lightgray'};
   border-top-right-radius: ${props => props.user === 'sent' && '1000px'};
   border-top-left-radius: ${props => props.user === 'received' && '1000px'};
@@ -33,7 +33,8 @@ export const MsgWrapper = styled.div<{ user: string, options: boolean, activeUpd
 
   p{
     font-size: 18px;
-    margin-right: 10px;
+    margin-right: ${props => props.user === 'sent' && '10px'};
+    margin-left: ${props => props.user === 'received' && '10px'};
   }
 
   @media (max-width: 775px) {
