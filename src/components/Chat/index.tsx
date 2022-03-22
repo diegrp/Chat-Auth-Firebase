@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, RefObject } from "react";
 import { deleteMsg, listMsg } from "../../services/firebase";
 import { auth } from "../../config/firebase";
 import { Message } from "../../types/Message";
+import { MsgItem } from "../MsgItem";
 import { SignOut } from "../SignOut";
 import { SendMessage } from "../SendMessage";
 import * as C from "./styles";
