@@ -75,7 +75,13 @@ return(
                 <IconBack size={15} />
               </span>
             </C.IconBack>
-            <C.IconUpdate onClick={updateMsgText}>
+            <C.IconUpdate onClick={() => {
+              if(updateText !== ''){
+                updateMsgText();
+              }else{
+                setActiveUpdate(false);
+              }
+            }}>
               <span>
                 <IconInsert size={15} />
               </span>
