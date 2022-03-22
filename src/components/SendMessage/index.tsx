@@ -33,8 +33,24 @@ export const SendMessage = ( { scroll }: any  ) => {
   }
 
   return(
-    <div>
-      ...
-    </div>
+    <C.Container>
+      <C.FormSendMsg onSubmit={sendMsgText}>
+        <C.FormWrapper>
+          <C.InputMsg
+            type="text"
+            value={msg}
+            label="Digite sua mensagem"
+            helperText={empty ? 'O campo de mensagem está vazio':''}
+            error={empty}
+            onChange={({target}) => setMsg(target.value)}
+          />  
+          <C.BtnMsg
+            type="submit"
+          >
+            Enviar Mensagem
+          </C.BtnMsg>
+        </C.FormWrapper>
+      </C.FormSendMsg>
+    </C.Container>
   )
 }
